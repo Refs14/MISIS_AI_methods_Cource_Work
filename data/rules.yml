@@ -1,0 +1,38 @@
+version: "3.1"
+
+rules:
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Request amount of qubits before creating circuit
+  steps:
+  - intent: create_circuit
+  - action: utter_create_circuit
+
+- rule: Create circuit with 1-5 cubits
+  steps:
+  - intent: qubits_amount
+  - action: action_create_circuit
+
+- rule: Get info about chosen gate
+  steps:
+  - intent: choose_gate
+  - action: action_get_gate_info
+
+- rule: Print circuit in console
+  steps:
+  - intent: request_circuit
+  - action: action_print_circuit
+
+- rule: Calculate new circuit
+  steps:
+  - intent: input_gate
+  - action: action_calculate
+
+- rule: Offer to write gate and give examples
+  steps:
+  - intent: calculate
+  - action: utter_calculate

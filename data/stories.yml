@@ -1,0 +1,49 @@
+version: "3.1"
+
+stories:
+
+- story: 1. Get gate as matrix by name
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: action_choose_option
+  - intent: get_gate_by_name
+  - action: utter_get_gate_by_name
+  - intent: choose_gate
+  - action: action_get_gate_info
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: 2. Calculating
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: action_choose_option
+  - intent: calculate
+  - action: utter_calculate
+  - intent: input_gate
+  - action: action_calculate
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: 3. Create circuit
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: action_choose_option
+  - intent: create_circuit
+  - action: utter_create_circuit
+  - intent: qubits_amount
+  - action: action_create_circuit
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: 4. Print circuit
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: action_choose_option
+  - intent: request_circuit
+  - action: action_print_circuit
+  - intent: goodbye
+  - action: utter_goodbye

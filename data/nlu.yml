@@ -1,0 +1,91 @@
+version: "3.1"
+
+nlu:
+
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+
+- intent: input_gate
+  examples: |
+    - [x(0)](GATE)
+    - [x(1)](GATE)
+    - [x(2)](GATE)
+    - [x(3)](GATE)
+    - [x(4)](GATE)
+
+    - [y(0)](GATE)
+    - [y(1)](GATE)
+    - [y(2)](GATE)
+    - [y(3)](GATE)
+    - [y(4)](GATE)
+
+    - [z(0)](GATE)
+    - [z(1)](GATE)
+    - [z(2)](GATE)
+    - [z(3)](GATE)
+    - [z(4)](GATE)
+
+    - [h(0)](GATE)
+    - [h(1)](GATE)
+    - [h(2)](GATE)
+    - [h(3)](GATE)
+    - [h(4)](GATE)
+
+    - [s(0)](GATE)
+    - [s(1)](GATE)
+    - [s(2)](GATE)
+    - [s(3)](GATE)
+    - [s(4)](GATE)
+
+    - [cx(0, 1)](GATE)
+    - [cx(0, 3)](GATE)
+    - [cx(1, 4)](GATE)
+    - [cx(1, 2)](GATE)
+    - [cx(2, 3)](GATE)
+    - [cx(2, 0)](GATE)
+    - [cx(3, 1)](GATE)
+    - [cx(3, 0)](GATE)
+
+    - [cz(0, 1)](GATE)
+    - [cz(0, 3)](GATE)
+    - [cz(1, 4)](GATE)
+    - [cz(1, 2)](GATE)
+    - [cz(2, 3)](GATE)
+    - [cz(2, 0)](GATE)
+    - [cz(3, 1)](GATE)
+    - [cz(3, 0)](GATE)
+
+    - [swap(0, 1)](GATE)
+    - [swap(0, 3)](GATE)
+    - [swap(1, 4)](GATE)
+    - [swap(1, 2)](GATE)
+    - [swap(2, 3)](GATE)
+    - [swap(2, 0)](GATE)
+    - [swap(3, 1)](GATE)
+    - [swap(3, 0)](GATE)

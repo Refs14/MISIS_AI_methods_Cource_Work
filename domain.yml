@@ -1,0 +1,94 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - get_gate_by_name
+  - calculate
+  - create_circuit
+  - request_circuit
+  - qubits_amount
+  - choose_gate
+  - unitarity_matrix
+  - input_gate
+
+actions:
+  - action_choose_option
+  - action_print_circuit
+  - action_create_circuit
+  - action_get_gate_info
+  - action_calculate
+
+entities:
+  - NUMBER
+  - GATE
+
+slots:
+  CIRCUIT:
+    type: text
+    initial_value: "OPENQASM 2.0;\ninclude \"qelib1.inc\";\nqreg q[2];\nh q[0];\ncx q[0],q[1];\ncx q[1],q[0];\n"
+    influence_conversation: false
+    mappings:
+    - type: custom
+
+  GATE:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: GATE
+  
+  NUMBER:
+    type: float
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: NUMBER
+
+responses:
+  utter_greet:
+  - text: "Hey! I'm a bot, that can create quantum circuits using classical gates. What do you?"
+
+  utter_goodbye:
+  - text: "Bye"
+
+  utter_calculate:
+  - text: "write gate like 'name(qubit1_number, qubit2_number2)' or name(qubit1_number). Example: 'cx(0, 2)', 's(3)'"
+  utter_get_gate_by_name:
+  - text: "Get some gate"
+    buttons:
+    - title: Gate X
+      payload: /choose_gate{{"NUMBER":1}}
+    - title: Gate Y
+      payload: /choose_gate{{"NUMBER":2}}
+    - title: Gate Z
+      payload: /choose_gate{{"NUMBER":3}}
+    - title: Gate H
+      payload: /choose_gate{{"NUMBER":4}}
+    - title: Gate S
+      payload: /choose_gate{{"NUMBER":5}}
+    - title: Gate CX
+      payload: /choose_gate{{"NUMBER":6}}
+    - title: Gate CZ
+      payload: /choose_gate{{"NUMBER":7}}
+    - title: Gate SWAP
+      payload: /choose_gate{{"NUMBER":8}}
+
+  utter_create_circuit:
+  - text: "How many qubits you need? (between 1 and 5)"
+    buttons:
+    - title: one
+      payload: /qubits_amount{{"NUMBER":1}}
+    - title: two
+      payload: /qubits_amount{{"NUMBER":2}}
+    - title: three
+      payload: /qubits_amount{{"NUMBER":3}}
+    - title: four
+      payload: /qubits_amount{{"NUMBER":4}}
+    - title: five
+      payload: /qubits_amount{{"NUMBER":5}}
+
+  
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
